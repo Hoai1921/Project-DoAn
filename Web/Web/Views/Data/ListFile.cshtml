@@ -1,0 +1,38 @@
+﻿@model Web.Models.BANGDIEM
+@{
+    ViewData["Title"] = "ListFile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="table-agile-info">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            @Session["Url"]
+        </div>
+        <div>
+            <table class="table" ui-jq="footable">
+                <p> @ViewBag.TestFile</p>
+                <thead>
+                    <tr>
+                        <th data-breakpoints="xs">ID</th>
+                        <th>Name Folder</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int i = 0;
+                        foreach (var item in ViewBag.File)
+                        {
+                            i++;
+                            string[] arr = @item.Split('\\');
+                            <tr data-expanded="true">
+                                <td><a href="@Url.Action("OCRFile", "OCR", new {@filename= item})" target="_blank">@i</a></td>
+                                <td><a href="C:\\Users\\Admin\\Documents\\DO THI HIEN.pdf" target="_blank">@arr[@arr.Length - 1]</a></td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

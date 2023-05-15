@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Db_BangDiemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BANGDIEM">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_HocKy" Type="int" />
+          <Property Name="Id_Nam" Type="int" />
+          <Property Name="Id_Mon" Type="int" />
+          <Property Name="Id_Khoa" Type="int" />
+          <Property Name="Id_Lop" Type="int" />
+          <Property Name="Id_LanHoc" Type="int" />
+          <Property Name="UrlFile" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="HOCKY">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HocKy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TrangThai" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KHOA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Khoa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TrangThai" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LANHOC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLan" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TrangThai" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LOPHOC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Lop" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TrangThai" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MONHOC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenMon" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TrangThai" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAMHOC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NamHoc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TrangThai" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TAIKHOAN">
+          <Key>
+            <PropertyRef Name="TenTK" />
+          </Key>
+          <Property Name="TenTK" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="50" />
+          <Property Name="Quyen" Type="int" />
+        </EntityType>
+        <Association Name="FK_BANGDIEM_HOCKY">
+          <End Role="HOCKY" Type="Self.HOCKY" Multiplicity="0..1" />
+          <End Role="BANGDIEM" Type="Self.BANGDIEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOCKY">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BANGDIEM">
+              <PropertyRef Name="Id_HocKy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BANGDIEM_KHOA">
+          <End Role="KHOA" Type="Self.KHOA" Multiplicity="0..1" />
+          <End Role="BANGDIEM" Type="Self.BANGDIEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BANGDIEM">
+              <PropertyRef Name="Id_Khoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BANGDIEM_LANHOC">
+          <End Role="LANHOC" Type="Self.LANHOC" Multiplicity="0..1" />
+          <End Role="BANGDIEM" Type="Self.BANGDIEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LANHOC">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BANGDIEM">
+              <PropertyRef Name="Id_LanHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BANGDIEM_LOPHOC">
+          <End Role="LOPHOC" Type="Self.LOPHOC" Multiplicity="0..1" />
+          <End Role="BANGDIEM" Type="Self.BANGDIEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOPHOC">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BANGDIEM">
+              <PropertyRef Name="Id_Lop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BANGDIEM_MONHOC">
+          <End Role="MONHOC" Type="Self.MONHOC" Multiplicity="0..1" />
+          <End Role="BANGDIEM" Type="Self.BANGDIEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MONHOC">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BANGDIEM">
+              <PropertyRef Name="Id_Mon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BANGDIEM_NAMHOC">
+          <End Role="NAMHOC" Type="Self.NAMHOC" Multiplicity="0..1" />
+          <End Role="BANGDIEM" Type="Self.BANGDIEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAMHOC">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BANGDIEM">
+              <PropertyRef Name="Id_Nam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Db_BangDiemModelStoreContainer">
+          <EntitySet Name="BANGDIEM" EntityType="Self.BANGDIEM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOCKY" EntityType="Self.HOCKY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHOA" EntityType="Self.KHOA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LANHOC" EntityType="Self.LANHOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOPHOC" EntityType="Self.LOPHOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MONHOC" EntityType="Self.MONHOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAMHOC" EntityType="Self.NAMHOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BANGDIEM_HOCKY" Association="Self.FK_BANGDIEM_HOCKY">
+            <End Role="HOCKY" EntitySet="HOCKY" />
+            <End Role="BANGDIEM" EntitySet="BANGDIEM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BANGDIEM_KHOA" Association="Self.FK_BANGDIEM_KHOA">
+            <End Role="KHOA" EntitySet="KHOA" />
+            <End Role="BANGDIEM" EntitySet="BANGDIEM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BANGDIEM_LANHOC" Association="Self.FK_BANGDIEM_LANHOC">
+            <End Role="LANHOC" EntitySet="LANHOC" />
+            <End Role="BANGDIEM" EntitySet="BANGDIEM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BANGDIEM_LOPHOC" Association="Self.FK_BANGDIEM_LOPHOC">
+            <End Role="LOPHOC" EntitySet="LOPHOC" />
+            <End Role="BANGDIEM" EntitySet="BANGDIEM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BANGDIEM_MONHOC" Association="Self.FK_BANGDIEM_MONHOC">
+            <End Role="MONHOC" EntitySet="MONHOC" />
+            <End Role="BANGDIEM" EntitySet="BANGDIEM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BANGDIEM_NAMHOC" Association="Self.FK_BANGDIEM_NAMHOC">
+            <End Role="NAMHOC" EntitySet="NAMHOC" />
+            <End Role="BANGDIEM" EntitySet="BANGDIEM" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Db_BangDiemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BANGDIEM">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_HocKy" Type="Int32" />
+          <Property Name="Id_Nam" Type="Int32" />
+          <Property Name="Id_Mon" Type="Int32" />
+          <Property Name="Id_Khoa" Type="Int32" />
+          <Property Name="Id_Lop" Type="Int32" />
+          <Property Name="Id_LanHoc" Type="Int32" />
+          <Property Name="UrlFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HOCKY" Relationship="Self.FK_BANGDIEM_HOCKY" FromRole="BANGDIEM" ToRole="HOCKY" />
+          <NavigationProperty Name="KHOA" Relationship="Self.FK_BANGDIEM_KHOA" FromRole="BANGDIEM" ToRole="KHOA" />
+          <NavigationProperty Name="LANHOC" Relationship="Self.FK_BANGDIEM_LANHOC" FromRole="BANGDIEM" ToRole="LANHOC" />
+          <NavigationProperty Name="LOPHOC" Relationship="Self.FK_BANGDIEM_LOPHOC" FromRole="BANGDIEM" ToRole="LOPHOC" />
+          <NavigationProperty Name="MONHOC" Relationship="Self.FK_BANGDIEM_MONHOC" FromRole="BANGDIEM" ToRole="MONHOC" />
+          <NavigationProperty Name="NAMHOC" Relationship="Self.FK_BANGDIEM_NAMHOC" FromRole="BANGDIEM" ToRole="NAMHOC" />
+        </EntityType>
+        <EntityType Name="HOCKY">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HocKy1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TrangThai" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BANGDIEMs" Relationship="Self.FK_BANGDIEM_HOCKY" FromRole="HOCKY" ToRole="BANGDIEM" />
+        </EntityType>
+        <EntityType Name="KHOA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Khoa1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TrangThai" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BANGDIEMs" Relationship="Self.FK_BANGDIEM_KHOA" FromRole="KHOA" ToRole="BANGDIEM" />
+        </EntityType>
+        <EntityType Name="LANHOC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TrangThai" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BANGDIEMs" Relationship="Self.FK_BANGDIEM_LANHOC" FromRole="LANHOC" ToRole="BANGDIEM" />
+        </EntityType>
+        <EntityType Name="LOPHOC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TrangThai" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BANGDIEMs" Relationship="Self.FK_BANGDIEM_LOPHOC" FromRole="LOPHOC" ToRole="BANGDIEM" />
+        </EntityType>
+        <EntityType Name="MONHOC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenMon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TrangThai" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BANGDIEMs" Relationship="Self.FK_BANGDIEM_MONHOC" FromRole="MONHOC" ToRole="BANGDIEM" />
+        </EntityType>
+        <EntityType Name="NAMHOC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NamHoc1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TrangThai" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BANGDIEMs" Relationship="Self.FK_BANGDIEM_NAMHOC" FromRole="NAMHOC" ToRole="BANGDIEM" />
+        </EntityType>
+        <EntityType Name="TAIKHOAN">
+          <Key>
+            <PropertyRef Name="TenTK" />
+          </Key>
+          <Property Name="TenTK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quyen" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_BANGDIEM_HOCKY">
+          <End Role="HOCKY" Type="Self.HOCKY" Multiplicity="0..1" />
+          <End Role="BANGDIEM" Type="Self.BANGDIEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOCKY">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BANGDIEM">
+              <PropertyRef Name="Id_HocKy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BANGDIEM_KHOA">
+          <End Role="KHOA" Type="Self.KHOA" Multiplicity="0..1" />
+          <End Role="BANGDIEM" Type="Self.BANGDIEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BANGDIEM">
+              <PropertyRef Name="Id_Khoa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BANGDIEM_LANHOC">
+          <End Role="LANHOC" Type="Self.LANHOC" Multiplicity="0..1" />
+          <End Role="BANGDIEM" Type="Self.BANGDIEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LANHOC">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BANGDIEM">
+              <PropertyRef Name="Id_LanHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BANGDIEM_LOPHOC">
+          <End Role="LOPHOC" Type="Self.LOPHOC" Multiplicity="0..1" />
+          <End Role="BANGDIEM" Type="Self.BANGDIEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOPHOC">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BANGDIEM">
+              <PropertyRef Name="Id_Lop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BANGDIEM_MONHOC">
+          <End Role="MONHOC" Type="Self.MONHOC" Multiplicity="0..1" />
+          <End Role="BANGDIEM" Type="Self.BANGDIEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MONHOC">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BANGDIEM">
+              <PropertyRef Name="Id_Mon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BANGDIEM_NAMHOC">
+          <End Role="NAMHOC" Type="Self.NAMHOC" Multiplicity="0..1" />
+          <End Role="BANGDIEM" Type="Self.BANGDIEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAMHOC">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BANGDIEM">
+              <PropertyRef Name="Id_Nam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BangDiemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BANGDIEMs" EntityType="Self.BANGDIEM" />
+          <EntitySet Name="HOCKies" EntityType="Self.HOCKY" />
+          <EntitySet Name="KHOAs" EntityType="Self.KHOA" />
+          <EntitySet Name="LANHOCs" EntityType="Self.LANHOC" />
+          <EntitySet Name="LOPHOCs" EntityType="Self.LOPHOC" />
+          <EntitySet Name="MONHOCs" EntityType="Self.MONHOC" />
+          <EntitySet Name="NAMHOCs" EntityType="Self.NAMHOC" />
+          <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />
+          <AssociationSet Name="FK_BANGDIEM_HOCKY" Association="Self.FK_BANGDIEM_HOCKY">
+            <End Role="HOCKY" EntitySet="HOCKies" />
+            <End Role="BANGDIEM" EntitySet="BANGDIEMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BANGDIEM_KHOA" Association="Self.FK_BANGDIEM_KHOA">
+            <End Role="KHOA" EntitySet="KHOAs" />
+            <End Role="BANGDIEM" EntitySet="BANGDIEMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BANGDIEM_LANHOC" Association="Self.FK_BANGDIEM_LANHOC">
+            <End Role="LANHOC" EntitySet="LANHOCs" />
+            <End Role="BANGDIEM" EntitySet="BANGDIEMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BANGDIEM_LOPHOC" Association="Self.FK_BANGDIEM_LOPHOC">
+            <End Role="LOPHOC" EntitySet="LOPHOCs" />
+            <End Role="BANGDIEM" EntitySet="BANGDIEMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BANGDIEM_MONHOC" Association="Self.FK_BANGDIEM_MONHOC">
+            <End Role="MONHOC" EntitySet="MONHOCs" />
+            <End Role="BANGDIEM" EntitySet="BANGDIEMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BANGDIEM_NAMHOC" Association="Self.FK_BANGDIEM_NAMHOC">
+            <End Role="NAMHOC" EntitySet="NAMHOCs" />
+            <End Role="BANGDIEM" EntitySet="BANGDIEMs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Db_BangDiemModelStoreContainer" CdmEntityContainer="BangDiemEntities">
+          <EntitySetMapping Name="BANGDIEMs">
+            <EntityTypeMapping TypeName="Db_BangDiemModel.BANGDIEM">
+              <MappingFragment StoreEntitySet="BANGDIEM">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_HocKy" ColumnName="Id_HocKy" />
+                <ScalarProperty Name="Id_Nam" ColumnName="Id_Nam" />
+                <ScalarProperty Name="Id_Mon" ColumnName="Id_Mon" />
+                <ScalarProperty Name="Id_Khoa" ColumnName="Id_Khoa" />
+                <ScalarProperty Name="Id_Lop" ColumnName="Id_Lop" />
+                <ScalarProperty Name="Id_LanHoc" ColumnName="Id_LanHoc" />
+                <ScalarProperty Name="UrlFile" ColumnName="UrlFile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOCKies">
+            <EntityTypeMapping TypeName="Db_BangDiemModel.HOCKY">
+              <MappingFragment StoreEntitySet="HOCKY">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="HocKy1" ColumnName="HocKy" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHOAs">
+            <EntityTypeMapping TypeName="Db_BangDiemModel.KHOA">
+              <MappingFragment StoreEntitySet="KHOA">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Khoa1" ColumnName="Khoa" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LANHOCs">
+            <EntityTypeMapping TypeName="Db_BangDiemModel.LANHOC">
+              <MappingFragment StoreEntitySet="LANHOC">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenLan" ColumnName="TenLan" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOPHOCs">
+            <EntityTypeMapping TypeName="Db_BangDiemModel.LOPHOC">
+              <MappingFragment StoreEntitySet="LOPHOC">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Lop" ColumnName="Lop" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MONHOCs">
+            <EntityTypeMapping TypeName="Db_BangDiemModel.MONHOC">
+              <MappingFragment StoreEntitySet="MONHOC">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenMon" ColumnName="TenMon" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAMHOCs">
+            <EntityTypeMapping TypeName="Db_BangDiemModel.NAMHOC">
+              <MappingFragment StoreEntitySet="NAMHOC">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NamHoc1" ColumnName="NamHoc" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAIKHOANs">
+            <EntityTypeMapping TypeName="Db_BangDiemModel.TAIKHOAN">
+              <MappingFragment StoreEntitySet="TAIKHOAN">
+                <ScalarProperty Name="TenTK" ColumnName="TenTK" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="Quyen" ColumnName="Quyen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

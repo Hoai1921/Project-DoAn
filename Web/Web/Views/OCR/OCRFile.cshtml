@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "OCRFile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    string str = @ViewBag.File;
+    string[] arr = str.Split('\n');
+    <div class="table-agile-info">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                @arr[0];
+            </div>
+            <div>
+                <table class="table" ui-jq="footable">
+
+                    <thead>
+                        <tr>
+                            <th data-breakpoints="xs"></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 1; i < arr.Length; i++)
+                        {
+                            if (@arr[i].Trim() != "")
+                            {
+                            <tr data-expanded="true">
+                                <td>@arr[i]</td>
+                            </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}

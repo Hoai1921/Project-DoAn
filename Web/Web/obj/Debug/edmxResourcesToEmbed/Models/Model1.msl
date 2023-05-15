@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Db_BangDiemModelStoreContainer" CdmEntityContainer="BangDiemEntities">
+    <EntitySetMapping Name="BANGDIEMs">
+      <EntityTypeMapping TypeName="Db_BangDiemModel.BANGDIEM">
+        <MappingFragment StoreEntitySet="BANGDIEM">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_HocKy" ColumnName="Id_HocKy" />
+          <ScalarProperty Name="Id_Nam" ColumnName="Id_Nam" />
+          <ScalarProperty Name="Id_Mon" ColumnName="Id_Mon" />
+          <ScalarProperty Name="Id_Khoa" ColumnName="Id_Khoa" />
+          <ScalarProperty Name="Id_Lop" ColumnName="Id_Lop" />
+          <ScalarProperty Name="Id_LanHoc" ColumnName="Id_LanHoc" />
+          <ScalarProperty Name="UrlFile" ColumnName="UrlFile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOCKies">
+      <EntityTypeMapping TypeName="Db_BangDiemModel.HOCKY">
+        <MappingFragment StoreEntitySet="HOCKY">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HocKy1" ColumnName="HocKy" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHOAs">
+      <EntityTypeMapping TypeName="Db_BangDiemModel.KHOA">
+        <MappingFragment StoreEntitySet="KHOA">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Khoa1" ColumnName="Khoa" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LANHOCs">
+      <EntityTypeMapping TypeName="Db_BangDiemModel.LANHOC">
+        <MappingFragment StoreEntitySet="LANHOC">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TenLan" ColumnName="TenLan" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOPHOCs">
+      <EntityTypeMapping TypeName="Db_BangDiemModel.LOPHOC">
+        <MappingFragment StoreEntitySet="LOPHOC">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Lop" ColumnName="Lop" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MONHOCs">
+      <EntityTypeMapping TypeName="Db_BangDiemModel.MONHOC">
+        <MappingFragment StoreEntitySet="MONHOC">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TenMon" ColumnName="TenMon" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NAMHOCs">
+      <EntityTypeMapping TypeName="Db_BangDiemModel.NAMHOC">
+        <MappingFragment StoreEntitySet="NAMHOC">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NamHoc1" ColumnName="NamHoc" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAIKHOANs">
+      <EntityTypeMapping TypeName="Db_BangDiemModel.TAIKHOAN">
+        <MappingFragment StoreEntitySet="TAIKHOAN">
+          <ScalarProperty Name="TenTK" ColumnName="TenTK" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="Quyen" ColumnName="Quyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

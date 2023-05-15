@@ -1,0 +1,41 @@
+﻿@model List<TAIKHOAN>
+@using Web.Models
+@{
+    ViewBag.Title = "ListTaiKhoan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    BangDiemEntities db = new BangDiemEntities();
+    <div class="table-agile-info">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Danh Sách Tài Khoản
+            </div>
+            <div>
+                <table class="table" ui-jq="footable">
+                    <thead>
+                        <tr>
+                            <th data-breakpoints="xs">STT</th>
+                            <th>Tên Tài Khoản</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var i = 0;
+                            foreach (var item in Model)
+                            {
+                                i++;
+                                <tr data-expanded="true">
+                                    <td><a href="@Url.Action("SuaTaiKhoan", "TaiKhoan", new {@ten=item.TenTK})">@i</a></td>
+                                    <td><a href="@Url.Action("SuaTaiKhoan", "TaiKhoan", new {@ten=item.TenTK})">@item.TenTK</a></td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+

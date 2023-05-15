@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ed8ad4c2b2194fa0afb158753b30cd8d" Name="Diagram1">
+        <EntityTypeShape EntityType="Db_BangDiemModel.BANGDIEM" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db_BangDiemModel.HOCKY" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db_BangDiemModel.KHOA" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db_BangDiemModel.LANHOC" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db_BangDiemModel.LOPHOC" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db_BangDiemModel.MONHOC" Width="1.5" PointX="0.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db_BangDiemModel.NAMHOC" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Db_BangDiemModel.TAIKHOAN" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Db_BangDiemModel.FK_BANGDIEM_HOCKY" ManuallyRouted="false" />
+        <AssociationConnector Association="Db_BangDiemModel.FK_BANGDIEM_KHOA" ManuallyRouted="false" />
+        <AssociationConnector Association="Db_BangDiemModel.FK_BANGDIEM_LANHOC" ManuallyRouted="false" />
+        <AssociationConnector Association="Db_BangDiemModel.FK_BANGDIEM_LOPHOC" ManuallyRouted="false" />
+        <AssociationConnector Association="Db_BangDiemModel.FK_BANGDIEM_MONHOC" ManuallyRouted="false" />
+        <AssociationConnector Association="Db_BangDiemModel.FK_BANGDIEM_NAMHOC" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

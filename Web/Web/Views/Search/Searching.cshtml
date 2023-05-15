@@ -1,0 +1,41 @@
+﻿@model List<BANGDIEM>
+@using Web.Models
+@{
+    ViewBag.Title = "Searching";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    BangDiemEntities db = new BangDiemEntities();
+    <div class="table-agile-info">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                @ViewBag.ThongBao
+            </div>
+            <div>
+                <table class="table" ui-jq="footable">
+                    <thead>
+                        <tr>
+                            <th data-breakpoints="xs">ID</th>
+                            <th>Name Folder</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            foreach (var item in Model)
+                            {
+                                string[] arr = @item.UrlFile.Split('\\');
+                                <tr data-expanded="true">
+                                    <td><a href="@Url.Action("ListFile", "Data", new { @id = @item.Id})">@item.Id</a></td>
+                                    <td><a href="#">@arr[@arr.Length - 1]</a></td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
